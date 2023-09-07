@@ -1,4 +1,4 @@
-﻿namespace CryptoPricesWithWebApi.ApiProxy
+﻿namespace CryptoPricesWithWebApi.ApiProxy.Models
 {
     public class PairTickerDetail
     {

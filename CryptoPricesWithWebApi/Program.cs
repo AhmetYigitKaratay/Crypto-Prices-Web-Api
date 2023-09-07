@@ -29,3 +29,8 @@ app.MapControllers();
 
 app.Run();
 
+/*<CryptoPricesWithWebApi.ApiProxy.TickerApiClient>(configureClient =>
+{
+    configureClient.DefaultRequestHeaders.Add("Accept", "application/json");
+}).AddHttpMessageHandler<>*/
+

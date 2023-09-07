@@ -31,7 +31,7 @@ namespace CryptoPricesWithWebApi.Controllers
                 return StatusCode(406, message);
             }
 
-            if(_context.Pairs.Any(c => c.Name== createPairRequest.Name))
+            if(await _context.Pairs.AnyAsync(c => c.Name == createPairRequest.Name))
             {
                 string message = "It's not allowed to enter the same data";
                 return BadRequest(message);
@@ -50,9 +50,9 @@ namespace CryptoPricesWithWebApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update([FromRoute] int id, UpdatePairRequest updatePairRequest)
         {  
-            PairData existingPair = _context.Pairs.FirstOrDefault(u => u.Id == id);
+            PairData existingPair = await _context.Pairs.FirstOrDefaultAsync(u => u.Id == id);
 
-            if (_context.Pairs.Any(u => u.Name == updatePairRequest.Name))
+            if (await _context.Pairs.AnyAsync(u => u.Name == updatePairRequest.Name))
             {
                 string message = "It's not allowed to enter the same data";
                 return BadRequest(message);
